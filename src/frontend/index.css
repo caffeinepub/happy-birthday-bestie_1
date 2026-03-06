@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/assets/fonts/PlayfairDisplay[wght].woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url("/assets/fonts/Figtree[wght].woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 1rem;
+
+    /* Birthday theme — warm blush rose palette */
+    --background: 0.97 0.018 5;
+    --foreground: 0.22 0.04 10;
+
+    --card: 1 0 0;
+    --card-foreground: 0.22 0.04 10;
+
+    --popover: 1 0 0;
+    --popover-foreground: 0.22 0.04 10;
+
+    /* Hot rose primary */
+    --primary: 0.52 0.22 8;
+    --primary-foreground: 1 0 0;
+
+    /* Soft blush secondary */
+    --secondary: 0.93 0.04 10;
+    --secondary-foreground: 0.35 0.08 10;
+
+    --muted: 0.95 0.02 8;
+    --muted-foreground: 0.52 0.04 8;
+
+    --accent: 0.88 0.08 15;
+    --accent-foreground: 0.25 0.06 10;
+
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 0.9 0.03 8;
+    --input: 0.9 0.03 8;
+    --ring: 0.52 0.22 8;
+
+    /* Birthday specific tokens */
+    --hot-rose: 0.52 0.22 8;
+    --deep-rose: 0.43 0.19 8;
+    --blush-light: 0.92 0.06 12;
+    --blush-mid: 0.87 0.09 16;
+    --petal-pink: 0.78 0.12 20;
+    --glow-rose: 0.65 0.18 12;
+
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+
+    --sidebar: 0.985 0 0;
+    --sidebar-foreground: 0.145 0 0;
+    --sidebar-primary: 0.205 0 0;
+    --sidebar-primary-foreground: 0.985 0 0;
+    --sidebar-accent: 0.97 0 0;
+    --sidebar-accent-foreground: 0.205 0 0;
+    --sidebar-border: 0.922 0 0;
+    --sidebar-ring: 0.708 0 0;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Figtree", sans-serif;
+  }
+}
+
+/* Birthday page background gradient */
+.birthday-bg {
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 40%, #fad0c4 100%);
+  min-height: 100vh;
+}
+
+/* Floating hearts animation */
+@keyframes float-up {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(-40vh) rotate(20deg) scale(1.1);
+  }
+  100% {
+    transform: translateY(-90vh) rotate(-10deg) scale(0.6);
+    opacity: 0;
+  }
+}
+
+@keyframes sway {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(20px);
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.15);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.1);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(180deg);
+  }
+}
+
+.animate-float-up {
+  animation: float-up linear infinite;
+}
+
+.animate-heartbeat {
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.animate-shimmer-in {
+  animation: shimmer-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-sparkle {
+  animation: sparkle 1.5s ease-in-out infinite;
+}
+
+/* Card glass effect */
+.birthday-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 150, 160, 0.25);
+}
